@@ -80,9 +80,10 @@ Respond %s to continue workflow or %s to cancel.`,
 		issueBody,
 	)
 	a.approvalIssue, _, err = a.client.Issues.Create(ctx, a.repoOwner, a.repo, &github.IssueRequest{
-		Title:     &issueTitle,
-		Body:      &issueBody,
-		Assignees: &a.issueApprovers,
+		Title: &issueTitle,
+		Body:  &issueBody,
+		//remove assignees
+		//Assignees: &a.issueApprovers,
 	})
 	if err != nil {
 		return err
